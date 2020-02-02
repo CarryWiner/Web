@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>锚点伪类</title>
+		<!-- 
+			:link：表示作为超链接，并指向一个未访问的地址的所有锚
+		 -->
+		 <style type="text/css">
+		 	a {
+				text-decoration: none;
+			}
+			a:link {
+				color: deeppink;
+			}
+			#test:link {
+				color: red;
+			}
+		 </style>
+	</head>
+	<body>
+		<a href="#">点击</a>
+		<div id="test">
+			我是div
+		</div>
+	</body>
+</html>
