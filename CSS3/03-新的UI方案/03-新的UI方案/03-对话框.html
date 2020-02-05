@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>对话框</title>
+		<style type="text/css">
+			.dialog {
+				width: 500px;
+				height: 300px;
+				font: 40px/300px helvetica;
+				border: 1px solid;
+				border-radius: 50%;
+				text-align: center;
+				position: relative;
+			}
+			.dialog::before, .dialog::after {
+				position: absolute;
+				display: block;
+				content: "";
+				border: 1px solid;
+				border-radius: 50%;
+			}
+			.dialog::before {
+				width: 50px;
+				height: 50px;
+				bottom: -25px;
+				right: 25px;
+			}
+			.dialog::after {
+				width: 20px;
+				height: 20px;
+				bottom: -50px;
+				right: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="dialog">
+			欢迎来到英雄联盟！
+		</div>
+	</body>
+</html>
