@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>倒影</title>
+		<!-- 
+			-webkit-box-reflect
+				设置元素的倒影
+				属性值
+					1.倒影的方向
+						above,below,right,left
+					2.倒影的距离
+						长度单位
+					3.渐变
+		 -->
+		<style type="text/css">
+			body {
+				background: #000;
+			}
+			img {
+				display: block;
+				margin: 100px auto;
+				-webkit-box-reflect: right 10px linear-gradient(-90deg,rgba(0,0,0,1) 0,rgba(0,0,0,0) 80%)
+			}
+		</style>
+	</head>
+	<body>
+		<img src="img/周冬雨.jpg" width="200" height="200">
+	</body>
+</html>

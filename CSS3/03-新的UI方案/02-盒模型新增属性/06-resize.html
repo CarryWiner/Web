@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>resize</title>
+		<!-- 
+			resize
+				CSS属性，允许控制一个元素的可调整大小性。
+				一定要配合overflow：auto使用
+				
+				属性值：
+					none：
+						元素不能被用户缩放。
+					both：
+						允许用户在水平和垂直方向上调整元素的大小。
+					horizontal:
+						允许用户在水平方向上调整元素的大小。
+					vertical:
+						允许用户在垂直方向上调整元素的大小。
+		 -->
+		 <style type="text/css">
+		 	div {
+				width: 200px;
+				height: 200px;
+				background: red;
+				resize: both;
+				overflow: auto;
+			}
+			textarea {
+				resize: none;
+			}
+		 </style>
+	</head>
+	<body>
+		<div></div>
+		<textarea rows="8" cols="10">
+			
+		</textarea>
+	</body>
+</html>
