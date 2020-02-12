@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background-clip</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            margin: 100px auto;
+            background: url("./img/tg.png") no-repeat center;
+            border: 30px solid rgba(0,0,0,.5);
+            -webkit-background-clip: text;
+            padding: 50px;
+            font: bold 120px/150px "微软雅黑";
+            text-align: center;
+            color: rgba(0, 0, 0, 0);
+            transition: 1s;
+        }
+        div:hover{
+            background-position: -200px -200px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        孙悟空
+    </div>
+</body>
+</html>
