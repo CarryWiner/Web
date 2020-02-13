@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发廊灯</title>
+    <style>
+        #wrap{
+            width: 200px;
+            height: 30px;
+            border: 1px solid;
+            overflow: hidden;
+        }
+        .box{
+            width: 400px;
+            height: 30px;
+            background: repeating-linear-gradient(45deg, black 0,black 10px,#fff 10px,#fff 20px);
+        }
+        /* #wrap:hover .box{
+            margin-left: -200px;
+        } */
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="box"></div>
+    </div>
+
+    <script>
+        var box = document.querySelector('#wrap > .box')
+        var flag = 0
+
+        setInterval(function () {
+            if (flag === 200) {
+                flag = 0
+            }
+            flag++
+            box.style.marginLeft = -flag + 'px'
+        },1000/60)
+    </script>
+</body>
+</html>
