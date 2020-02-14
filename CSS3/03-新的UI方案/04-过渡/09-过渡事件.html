@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过渡事件</title>
+    <style>
+        #test{
+            width: 100px;
+            height: 100px;
+            background: gray;
+            transition: 2s;
+        }
+    </style>
+</head>
+<body>
+    <div id="test"></div>
+
+    <script>
+        var testNode = document.querySelector('#test')
+
+        testNode.onclick = function(){
+            setTimeout(() => {
+                testNode.style.display = 'none'
+                console.log('none')
+            }, 2000);
+            this.style.width = this.offsetWidth + 100 + 'px'
+            this.style.background = 'pink'
+        }
+
+        testNode.addEventListener('transitionend', function(){
+            alert('end')
+        })
+    </script>
+</body>
+</html>
