@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>平移测试</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            margin: 100px 0;
+            width: 200px;
+            height: 200px;
+            background: pink;
+            transition: 3s;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <input id="test1" type="button" value="测试1">
+    <input id="test2" type="button" value="测试2">
+
+    <script>
+        var box = document.querySelector('#box')
+        var test1 = document.querySelector('#test1')
+        var test2 = document.querySelector('#test2')
+
+        test1.onclick = function () {
+            box.style.transform = 'translateX(100px)'
+        }
+        test2.onclick = function () {
+            box.style.transform = 'translateX(0px)'
+        }
+    </script>
+</body>
+</html>
