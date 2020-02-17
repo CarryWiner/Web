@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扇形导航</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            width: 50px;
+            height: 50px;
+        }
+        #home{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50px;
+            height: 50px;
+            background: url("./img/home.png") no-repeat;
+            border-radius: 50%;
+            transition: 1s;
+        }
+        #menu_list{
+            height: 50px;
+        }
+        #menu_list > img{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 42px;
+            height: 42px;
+            margin: 4px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="menu_list">
+            <img src="./img/clos.png">
+            <img src="./img/full.png">
+            <img src="./img/open.png">
+            <img src="./img/prev.png">
+            <img src="./img/refresh.png">
+        </div>
+        <div id="home" class="home"></div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            var home = document.querySelector('#home');
+            var img = document.querySelectorAll('#menu_list img')
+            var flag = true;
+            var c = 130
+
+            home.onclick = function () {
+                if (flag) {
+                    this.style.transform = 'rotate(-720deg)';
+                    for (var i = 0; i < img.length; i++) {
+                        img[i].style.transition = '.5s ' + i*0.1 + 's';
+                        img[i].style.transform = 'rotate(-720deg) scale(1)'
+                        img[i].style.left = '-' + getPoint(c, 90*i/(img.length-1)).left + 'px'
+                        img[i].style.top = '-' + getPoint(c, 90*i/(img.length-1)).top + 'px'
+                    }
+                } else {
+                    this.style.transform = 'rotate(0)';
+                    for (var i = 0; i < img.length; i++) {
+                        img[i].style.transition = '.5s ' + (img.length-1-i)*0.1 + 's';
+                        img[i].style.transform = 'rotate(0) scale(1)'
+                        img[i].style.left = '0px'
+                        img[i].style.top = '0px'
+                    }
+                }
+                flag = !flag
+            }
+
+            for (var i = 0; i < img.length; i++) {
+                img[i].onclick = function () {
+                    this.style.transition = '.5s';
+                    this.style.transform = 'rotate(-720deg) scale(2)';
+                    this.style.opacity = 0.3;
+
+                    this.addEventListener('transitionend', fn)
+                }
+            }
+
+            function fn() {
+                this.style.transition = '.5s';
+                this.style.transform = 'rotate(-720deg) scale(1)'
+                this.style.opacity = 1
+
+                this.removeEventListener('transitionend', fn)
+            }
+
+            function getPoint(c, deg) {
+                var left = Math.round(Math.sin(deg*Math.PI/180)*c);
+                var top = Math.round(Math.cos(deg*Math.PI/180)*c);
+
+                return {left, top}
+            }
+        }
+    </script>
+</body>
+</html>

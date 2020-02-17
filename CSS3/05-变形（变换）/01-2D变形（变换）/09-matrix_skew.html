@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>matrix</title>
+    <!-- 
+        transform: skew(x, y)
+        transform: matrix(1, tany, tanx, 1, 0, 0)
+     -->
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: pink;
+            margin: 100px auto;
+            margin-bottom: 20px;
+        }
+        div:nth-child(1){
+            transform: matrix(1,0,1,1,0,0);
+        }
+        div:nth-child(2){
+            transform: skew(45deg);
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+</body>
+</html>
