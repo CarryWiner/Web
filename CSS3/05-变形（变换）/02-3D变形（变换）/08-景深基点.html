@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>景深基点</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #wrap {
+            margin: 0 auto;
+            width: 100px;
+            height: 100px;
+            padding: 100px;
+            border: 1px solid;
+            background: pink;
+            perspective-origin: 150px 300px;
+            transform-style: preserve-3d;
+            perspective: 100px;
+        }
+        #inner {
+            width: 100px;
+            height: 100px;
+            background: red;
+            transform: rotateX(90deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="inner">
+            inner
+        </div>
+    </div>
+</body>
+</html>
