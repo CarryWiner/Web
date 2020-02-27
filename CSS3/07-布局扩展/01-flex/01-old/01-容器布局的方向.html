@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>容器布局的方向</title>
+		<style type="text/css">
+			/* 
+				-webkit-box-orient控制布局主轴和侧轴分别是哪一根
+					horizontal表示水平方向
+					vertical表示垂直方向
+			 */
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			#wrap {
+				border: 1px solid;
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+			}
+			.item {
+				width: 50px;
+				height: 50px;
+				background: pink;
+				text-align: center;
+				line-height: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div class="item">1</div>
+			<div class="item">2</div>
+			<div class="item">3</div>
+			<div class="item">4</div>
+			<div class="item">5</div>
+		</div>
+	</body>
+</html>
