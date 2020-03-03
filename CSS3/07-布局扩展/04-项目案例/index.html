@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>淘宝</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            display: block;
+            text-decoration: none;
+            color: gray;
+        }
+        #nav > .row {
+            display: flex;
+        }
+        #nav > .row > .item {
+            flex: 1;
+            text-align: center;
+        }
+        #nav > .row > .item > a::before {
+            display: block;
+            content: "";
+            width: 183px;
+            height: 144px;
+            margin: 0 auto;
+        }
+        #nav > .row:nth-child(1) > .item:nth-child(1) > a::before {
+            background: url('img/天猫新品.png') no-repeat;
+        }
+        #nav > .row:nth-child(1) > .item:nth-child(2) > a::before {
+            background: url('img/今日爆款.png') no-repeat;
+        }
+        #nav > .row:nth-child(1) > .item:nth-child(3) > a::before {
+            background: url('img/天猫国际.png') no-repeat;
+        }
+        #nav > .row:nth-child(1) > .item:nth-child(4) > a::before {
+            background: url('img/饿了么.png') no-repeat;
+        }
+        #nav > .row:nth-child(1) > .item:nth-child(5) > a::before {
+            background: url('img/天猫超市.png') no-repeat;
+        }
+        #nav > .row:nth-child(2) > .item:nth-child(1) > a::before {
+            background: url('img/充值中心.png') no-repeat;
+        }
+        #nav > .row:nth-child(2) > .item:nth-child(2) > a::before {
+            background: url('img/机票酒店.png') no-repeat;
+        }
+        #nav > .row:nth-child(2) > .item:nth-child(3) > a::before {
+            background: url('img/金币庄园.png') no-repeat;
+        }
+        #nav > .row:nth-child(2) > .item:nth-child(4) > a::before {
+            background: url('img/阿里拍卖.png') no-repeat;
+        }
+        #nav > .row:nth-child(2) > .item:nth-child(5) > a::before {
+            background: url('img/淘宝吃货.png') no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <div class="row">
+            <div class="item">
+                <a href="javascript:;">天猫新品</a>
+            </div>
+            <div class="item">
+                <a href="javascript:;">今日爆款</a>
+            </div>
+            <div class="item">
+                <a href="javascript:;">天猫国际</a>
+            </div>
+            <div class="item">
+                <a href="javascript:;">饿了么</a>
+            </div>
+            <div class="item">
+                <a href="javascript:;">天猫超市</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="item">
+                <a href="javascript:;">充值中心</a>
+            </div>
+            <div class="item">
+                <a href="javascript:;">机票酒店</a>
+            </div>
+            <div class="item">
+                <a href="javascript:;">金币庄园</a>
+            </div>
+            <div class="item">
+                <a href="javascript:;">阿里拍卖</a>
+            </div>
+            <div class="item">
+                <a href="javascript:;">淘宝吃货</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
