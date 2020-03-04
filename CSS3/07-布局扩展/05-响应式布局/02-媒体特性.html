@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>媒体特性</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #wrap {
+            width: 100px;
+            height: 100px;
+            border: 1px solid;
+            margin: 100px auto;
+        }
+
+        /* width：浏览器窗口的尺寸 */
+        /* 
+            max-width: 800px    <= 800
+            min-width：400px    >= 400
+
+            device-width:设备独立像素（min max）
+                pc端：分辨率
+                移动端：具体看设备的参数
+
+            device-pixel-ratio(必须加-webkit前缀)(min max)
+                pc端：1
+                移动端：具体看设备的参数
+
+            orientation
+                portrait竖屏
+                landscape横屏
+        */
+        /* @media screen and (max-width: 800px) and (min-width: 400px) {
+            #wrap {
+                background: yellow;
+            }
+        } */
+        @media screen and (-webkit-device-pixel-ratio: 2) {
+            #wrap {
+                background: yellow;
+            }
+        }
+        @media screen and (orientation: landscape) {
+            #wrap {
+                border: 10px solid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap"></div>
+</body>
+</html>
