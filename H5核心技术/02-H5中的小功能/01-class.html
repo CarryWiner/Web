@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test" class="abc abc1 abc2 abc3">
+
+    </div>
+    <script>
+        debugger
+        var testNode = document.querySelector('#test')
+        // console.log(testNode.className)
+        testNode.classList.add('qwe')
+        testNode.classList.remove('abc1')
+        testNode.classList.toggle('abc1')
+        console.log(testNode.classList)
+    </script>
+</body>
+</html>

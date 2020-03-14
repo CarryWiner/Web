@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test" data-abc-def="abc"></div>
+</body>
+<script>
+    var testNode = document.querySelector('#test')
+    // testNode.setAttribute('abc', '111')
+    console.log(testNode.dataset.abcDef)
+    testNode.dataset.abcDef = '123'
+</script>
+</html>
