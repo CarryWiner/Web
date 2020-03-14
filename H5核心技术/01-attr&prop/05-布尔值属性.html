@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布尔值属性</title>
+    
+</head>
+<body>
+    <input type="checkbox" name="abc" />
+
+    <script>
+        /*
+            布尔值属性：你的property是布尔值类型
+            非布尔值属性：你的property是非布尔值类型
+        */
+
+        /*
+            布尔值属性 property和attribute的同步问题
+                1.改变property时，不会同步attribute
+                2.在没有动过property时，attribute会同步property
+                一旦动过property时，attribute不会同步property
+        */
+        var abc = document.querySelector('input[type=checkbox]')
+        debugger
+        abc.setAttribute('checked', 'checked1')
+        abc.setAttribute('checked', 'checked2')
+        abc.setAttribute('checked', 'checked3')
+
+        abc.checked = 'checked4'
+        abc.checked = false
+        abc.checked = 'checked5'
+    </script>
+</body>
+</html>

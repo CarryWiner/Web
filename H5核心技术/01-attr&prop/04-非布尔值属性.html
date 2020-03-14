@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>非布尔值属性</title>
+    
+</head>
+<body>
+    <input type="checkbox" checked="checked" name="abc" />
+
+    <script>
+        /*
+            布尔值属性：你的property是布尔值类型
+            非布尔值属性：你的property是非布尔值类型
+        */
+
+        // 非布尔值属性 property和attribute的同步问题
+        // 不管什么情况下，property和attribute都会同步
+        var abc = document.querySelector('input[type=checkbox]')
+        debugger
+        abc.setAttribute('name', 'checked1')
+
+        abc.name = 'checked2'
+    </script>
+</body>
+</html>
