@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飞鸟</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+        body {
+            background: pink;
+        }
+        #bird {
+            background: #fff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="bird" width="400" height="400"></canvas>
+
+    <script>
+        window.onload = function () {
+            var canvas = document.querySelector('#bird');
+            canvas.width = document.documentElement.clientWidth;
+            canvas.height = document.documentElement.clientHeight;
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+                var index = 0;
+                var positionX = 0;
+                setInterval(() => {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    
+                    positionX += 10;
+                    if (positionX === canvas.width) {
+                        positionX = 0;
+                    }
+
+                    index++;
+                    if (index === 9) {
+                        index = 1;
+                    }
+                    var img = new Image();
+                    img.src = 'img/q_r' + index + '.jpg';
+                    img.onload = function () {
+                        draw(this);
+                    }
+                }, 100);
+
+                function draw(img) {
+                    ctx.drawImage(img, positionX, 0);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
