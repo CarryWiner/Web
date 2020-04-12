@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阴影</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+        body {
+            background: pink;
+        }
+        #test {
+            background: #fff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="test" width="400" height="400">
+        您的浏览器不支持画布元素 请您换成谷歌。
+    </canvas>
+
+    <script>
+        window.onload = function () {
+            var canvas = document.querySelector('#test');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+
+                // 文本阴影&盒阴影
+                ctx.shadowOffsetX = 6;
+                ctx.shadowOffsetY = 6;
+                ctx.shadowBlur = 6;
+                ctx.shadowColor = 'yellow';
+
+                // ctx.fillStyle = 'blue';
+                // ctx.font = '40px sans-serif';
+                // ctx.textAlign = 'center';
+                // ctx.textBaseline = 'middle';
+                // var obj = ctx.measureText('欢迎学习前端');
+                // ctx.fillText('欢迎学习前端', canvas.width/2, canvas.height/2);
+
+                ctx.fillRect(100, 100, 100, 100);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>textAlign</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+        body {
+            background: pink;
+        }
+        #test {
+            background: #fff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="test" width="400" height="400">
+        您的浏览器不支持画布元素 请您换成谷歌。
+    </canvas>
+
+    <script>
+        window.onload = function () {
+            var canvas = document.querySelector('#test');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+                ctx.fillStyle = 'blue';
+                ctx.font = '40px sans-serif';
+                // ctx.textAlign = 'left';
+                // ctx.textAlign = 'center';
+                ctx.textAlign = 'right';
+                ctx.fillText('欢迎学习前端', 50, 50);
+                // ctx.strokeText('欢迎学习前端', 50, 50);
+            }
+        }
+    </script>
+</body>
+</html>
