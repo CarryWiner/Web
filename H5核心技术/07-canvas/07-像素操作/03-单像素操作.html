@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>像素操作</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+        body {
+            background: pink;
+        }
+        #test {
+            background: #fff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="test" width="400" height="400">
+        您的浏览器不支持画布元素 请您换成谷歌。
+    </canvas>
+
+    <script>
+        window.onload = function () {
+            var canvas = document.querySelector('#test');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+                ctx.save();
+                ctx.fillStyle = 'pink';
+                ctx.beginPath();
+                ctx.fillRect(50, 50, 100, 100);
+                ctx.restore();
+
+                var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                // var color = getPxInfo(imageData, 49, 49);
+                // console.log('====', color);
+
+                for (var i = 0; i < imageData.width; i++) {
+                    setPxInfo(imageData, i, 50, [0, 0, 0, 255]);
+                }
+                ctx.putImageData(imageData, 0, 0);
+            }
+
+            function getPxInfo(imageData, x, y) {
+                var color = [];
+                var data = imageData.data;
+                var w = canvas.width;
+                var h = canvas.height;
+
+                // x:多少列 y:多少行
+                var index = y*w + x;
+                // r
+                color[0] = data[index*4];
+                // g
+                color[1] = data[index*4 + 1];
+                // b
+                color[2] = data[index*4 + 2];
+                // a
+                color[3] = data[index*4 + 3];
+
+                return color;
+            }
+
+            function setPxInfo(imageData, x, y, color) {
+                var data = imageData.data;
+                var w = canvas.width;
+                var h = canvas.height;
+
+                var index = y*w + x;
+                data[index*4] = color[0];
+                data[index*4 + 1] = color[1];
+                data[index*4 + 2] = color[2];
+                data[index*4 + 3] = color[3];
+            }
+        }
+    </script>
+</body>
+</html>
