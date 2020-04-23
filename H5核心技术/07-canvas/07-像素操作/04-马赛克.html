@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>马赛克</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+        body {
+            background: pink;
+        }
+        #test {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: gray;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="test"></canvas>
+</body>
+
+<script>
+    var canvas = document.querySelector('#test');
+    if (canvas.getContext) {
+        var ctx = canvas.getContext('2d');
+
+
+        var img = new Image();
+        img.src = 'index.jpg';
+        img.onload = function() {
+            canvas.width = img.width*2;
+            canvas.height = img.height;
+            draw();
+        }
+
+        function draw() {
+            ctx.drawImage(img, 0, 0);
+
+            var oldImgData = ctx.getImageData(0, 0, img.width, img.height);
+            var newImgData = ctx.createImageData(img.width, img.height);
+
+            // 马赛克
+            // 1.选取一个马赛克矩形
+            // 2.从马赛克矩形中随机抽出一个像素点的信息（rgba）
+            // 3.将整个马赛克矩形中的像素点信息统一调成随机抽出的那个
+
+            var size = 4;
+            for (var i = 0; i < oldImgData.width/size; i++) {
+                for (var j = 0; j < oldImgData.height/size; j++) {
+                    // (i, j) 每一个马赛克矩形的坐标
+                    // (0, 0) (0, 0)-(4, 4) // (1, 0) (5, 0)-(9, 4)
+                    // (0, 1) (0, 5)-(4, 9) // (1, 1) (5, 5)-(9, 9)
+                    var color = getPxInfo(oldImgData, i*size + Math.floor(Math.random()*size), j*size + Math.floor(Math.random()*size));
+
+                    for (var n = 0; n < size; n++) {
+                        for (var m = 0; m < size; m++) {
+                            setPxInfo(newImgData, i*size + n, j*size + m, color);
+                        }
+                    }
+                }
+            }
+            ctx.putImageData(newImgData, img.width, 0);
+        }
+
+        function getPxInfo(imageData, x, y) {
+                var color = [];
+                var data = imageData.data;
+                var w = canvas.width;
+                var h = canvas.height;
+
+                // x:多少列 y:多少行
+                var index = y*w + x;
+                // r
+                color[0] = data[index*4];
+                // g
+                color[1] = data[index*4 + 1];
+                // b
+                color[2] = data[index*4 + 2];
+                // a
+                color[3] = data[index*4 + 3];
+
+                return color;
+            }
+
+            function setPxInfo(imageData, x, y, color) {
+                var data = imageData.data;
+                var w = canvas.width;
+                var h = canvas.height;
+
+                var index = y*w + x;
+                data[index*4] = color[0];
+                data[index*4 + 1] = color[1];
+                data[index*4 + 2] = color[2];
+                data[index*4 + 3] = color[3];
+            }
+    }
+</script>
+</html>
