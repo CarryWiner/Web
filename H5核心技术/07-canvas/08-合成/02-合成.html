@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+        body {
+            background: goldenrod;
+        }
+        #test {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: gray;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="test" width="300" height="300"></canvas>
+</body>
+<script>
+    window.onload = function () {
+        var canvas = document.querySelector('#test');
+        if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+            ctx.fillStyle = 'red';
+            ctx.fillRect(50, 50, 100, 100);
+            ctx.globalCompositeOperation = 'destination-atop';
+            ctx.fillStyle = 'green';
+            ctx.fillRect(100, 100, 100, 100);
+        }
+    }
+</script>
+</html>
