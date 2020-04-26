@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导出为图像</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+        body {
+            background: pink;
+        }
+        #test {
+            background: gray;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="test" width="300" height="300"></canvas>
+
+    <script>
+        var canvas = document.querySelector('#test');
+        if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+            ctx.fillRect(0, 0, 100, 100);
+            var result = canvas.toDataURL();
+            console.log(result)
+        }
+    </script>
+</body>
+</html>
