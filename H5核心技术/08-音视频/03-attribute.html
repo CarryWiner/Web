@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attribute</title>
+</head>
+<body>
+    <!-- 
+        video 标签的属性：
+            src：要嵌到页面的视频的URL
+            width：视频显示区域的宽度，单位是css像素
+            height：视频显示区域的高度，单位是css像素
+            poster：一个海报帧的URL，用于在用户播放或者跳帧之前展示
+            controls：显示或者隐藏用户控制界面
+            autoplay：媒体是否自动播放
+            loop：媒体是否循环播放
+            muted：是否静音
+            preload：
+                该属性旨在告诉浏览器左至认为达到最佳的用户体验的方式是什么
+                    none：
+                        提示作者认为用户不需要查看该视频，服务器也想要最小化访问流量
+                        该视频不需要缓存
+                    metadata：
+                        提示尽管作者认为用户不需要查看该视频，不过抓取元数据（比如：
+                        长度）还是合理的
+                    auto：
+                        用户需要这个视频优先加载
+                    ""：
+                        auto
+                    
+     -->
+    <video
+        src="resource/video/test.mp4"
+        controls autoplay muted
+        width="800" height="500"
+        poster="resource/img/index.jpg">
+    </video>
+
+    <!-- 
+        audio标签的属性：
+            src
+            controls
+            autoplay
+            muted
+            loop
+            preload
+     -->
+    <audio src="resource/audio/test.mp3" autoplay loop "></audio>
+</body>
+</html>
